@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ustal</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <div class="modal fade" id="newRequest_1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+                        <h1>Новая заявка</h1>
+                        <div class="close" data-dismiss="modal">&times;</div>
+                    </div>
+                    <div class="modal-body">
+                        <h3 class="error" id="errorNR_1"></h3>
+                        <div class="form-group">
+                            <h4>ФИО</h4>
+                            <input required class="form-control" id="fio" name="fio" type="text">
+                        </div>
+                        <div class="form-group">
+                            <h4>Email</h4>
+                            <input required class="form-control" id="email" name="email" type="text">
+                        </div>
+                        <div class="form-group">
+                            <h4>Тип пропуска</h4>
+                            <select id="type_pass" name="type_pass">
+                                <option value="unlimited">Постоянный</option>
+                                <option value="limited">Временный</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" id="newRequest_1sbm" type="submit">Далее</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="newRequest_2">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+                        <h1>Новая заявка</h1>
+                        <div class="close" data-dismiss="modal">&times;</div>
+                    </div>
+                    <div class="modal-body">
+                        <h3 class="error" id="errorNR_2"></h3>
+                        <div class="form-group">
+                            <h4>Начало посещения</h4>
+                            <input required class="form-control" id="start_date" name="start_date" type="date">
+                        </div>
+                        <div class="form-group">
+                            <h4>Конец посещения</h4>
+                            <input required class="form-control" id="end_date" name="end_date" type="date">
+                        </div>
+                        <div class="form-group">
+                            <h4>Причина посещения</h4>
+                            <input required class="form-control" id="visit_purpose" name="visit_purpose" type="text">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" id="newRequest_2back" type="button">Назад</button>
+                        <button class="btn btn-primary" id="newRequest_2sbm" type="submit">Далее</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="newRequest_3">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+                        <h1>Новая заявка</h1>
+                        <div class="close" data-dismiss="modal">&times;</div>
+                    </div>
+                    <div class="modal-body">
+                        <h3 class="error" id="errorNR_3"></h3>
+                        <div class="form-group">
+                            <h4>Ваше фото</h4>
+                            <input required accept="image/jpeg,phg" class="form-control" id="photo" name="photo" type="file">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" id="newRequest_3back" type="button">Назад</button>
+                        <button class="btn btn-success" id="newRequest_3sbm" type="submit">Отправить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <button class="btn btn-success m-auto" data-target="#newRequest_1" data-toggle="modal" type="button">Подать заявку на посещение</button>
+    </div>
+
+</body>
+<script defer src="./js/jquery-3.3.1.min.js"></script>
+<script defer src="./js/bootstrap.js"></script>
+<script defer src="./js/vue.js"></script>
+<script defer src="./js/script.js"></script>
+<script defer src="./js/cropImage.js"></script>
+</html>
