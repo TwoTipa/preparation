@@ -2,7 +2,7 @@ var startX , startY, endX, endY;
 
 var crop = $(".croper");
 var canvas = $("canvas")[0];
-var img = $("#display-3 img");
+var img = $(".croperBlock img");
 
 var move = false;
 
@@ -10,7 +10,7 @@ img.mousedown(function(e) {
     startX = e.offsetX;
     startY = e.offsetY;
 
-    $("#display-3 img").css("filter", "blur(0px)");
+    img.css("filter", "blur(0px)");
 
     move = true;
 });
@@ -39,7 +39,7 @@ img.mousemove(function(e) {
     crop.css("height", maxY + "px");
 });
 
-$("#display-3 img").mouseup(function(e) {
+img.mouseup(function(e) {
     if(!move) return;
 
     img.css("filter", "blur(3px)");
@@ -51,14 +51,14 @@ $("#display-3 img").mouseup(function(e) {
     let ctx = canvas.getContext("2d");
     let im = img[0];
     ctx.drawImage(im, -minX, -minY, im.width, im.height);
-    $("#img")[0].value = canvas.toDataURL();
+    $("#photo")[0].value = canvas.toDataURL();
 });
 
 $("#load").on("change", function(e) {
     let reader = new FileReader();
 
     reader.onload = function(e) {
-        $("#display-3 img").attr("src", e.target.result);
+        img.attr("src", e.target.result);
         crop.css("background-image", `url(${e.target.result})`);
     }
 

@@ -14,7 +14,7 @@
             <div class="modal-content">
                 <form>
                     <div class="modal-header">
-                        <h1>Новая заявка</h1>
+                        <h1>Первый шаг</h1>
                         <div class="close" data-dismiss="modal">&times;</div>
                     </div>
                     <div class="modal-body">
@@ -48,7 +48,7 @@
             <div class="modal-content">
                 <form>
                     <div class="modal-header">
-                        <h1>Новая заявка</h1>
+                        <h1>Второй шаг</h1>
                         <div class="close" data-dismiss="modal">&times;</div>
                     </div>
                     <div class="modal-body">
@@ -80,14 +80,20 @@
             <div class="modal-content">
                 <form>
                     <div class="modal-header">
-                        <h1>Новая заявка</h1>
+                        <h1>Третий шаг</h1>
                         <div class="close" data-dismiss="modal">&times;</div>
                     </div>
                     <div class="modal-body">
                         <h3 class="error" id="errorNR_3"></h3>
+                        <div class="croperBlock">
+                            <img src="">
+                            <div class="croper"></div>
+                            <canvas style="display: none;"></canvas>    
+                        </div>
                         <div class="form-group">
                             <h4>Ваше фото</h4>
-                            <input required accept="image/jpeg,phg" class="form-control" id="photo" name="photo" type="file">
+                            <input required accept="image/jpeg,phg" class="form-control" id="load" type="file">
+                            <input id="photo" name="photo" type="hidden">
                         </div>
                     </div>
                     <div class="modal-footer">

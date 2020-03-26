@@ -4,6 +4,29 @@
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
+.croperBlock {
+    position: relative;
+    width: 300px;
+}
+
+.croper {
+    background-image: url("");
+    background-position: 0px 0px;
+    background-size: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    border: solid 1px whitesmoke;
+}
+
+.croperBlock img {
+    width: 300px;
+    -webkit-user-drag: none;
+}
+
 .close {
     margin: auto;
     cursor: pointer;

@@ -15,36 +15,27 @@ $_POST['visit_purpose'])) {
     $start_date = $_POST['start_date'];
     $end_date = $_POST['end_date'];
     $purpose = $_POST['visit_purpose'];
-    // $photo = $_POST['photo'];
-    $url = generateStr(8);
+    $photo = $_POST['photo'];
 
-    echo $fio;
-    echo $email;
-    echo $type_pass;
-    echo $start_date;
-    echo $end_date;
-    echo $purpose;
-    echo $url;
+    $uploaddir = "../images/";
+    $photo = str_replace("data:image/png;base64,", '', $photo);
+    $photo = str_replace("data:image/jpeg;base64,", '', $photo);
+    $photo = str_replace(" ", '+', $photo);
+    $data = base64_decode($photo);
+    $file_name = generateStr(8) . ".jpg";
+    $uploadfile = $uploaddir . $file_name;
+    $url = "localhost/OneMore/" . generateStr(8);
 
-    // $uploaddir = "../images/";
-    // $photo = str_replace("data:image/png;base64,", '', $photo);
-    // $photo = str_replace("data:image/jpeg;base64,", '', $photo);
-    // $photo = str_replace(" ", '+', $photo);
-    // $data = base64_decode($photo);
-    // $file_name = generateStr(8) . ".jpg";
-    // $uploadfile = $uploaddir . $file_name; 
-
-
-    // if(file_put_contents($uploadfile, $data)) {
+    if(file_put_contents($uploadfile, $data)) {
 
         if($type_pass == "limited") {
             $query = mysqli_query($db, "INSERT INTO
-            request (fio, email, type_pass, start_date, end_date, cause_purpose, url)
-            VALUES ('$fio', '$email', '$type_pass', '$start_date', '$end_date', '$purpose', '$url')");
+            request (fio, email, type_pass, start_date, end_date, visit_purpose, photo, url)
+            VALUES ('$fio', '$email', '$type_pass', '$start_date', '$end_date', '$purpose', '$file_name', '$url')");
         } else {
             $query = mysqli_query($db, "INSERT INTO
-            request (fio, email, type_pass, url)
-            VALUES ('$fio', '$email', '$type_pass', '$url')");
+            request (fio, email, type_pass, photo, url)
+            VALUES ('$fio', '$email', '$type_pass', '$file_name', '$url')");
         }
     
         if($query) {
@@ -55,9 +46,9 @@ $_POST['visit_purpose'])) {
             echo "ошибка запроса";
         }
     
-    // } else {
-    //     echo "er";
-    // }
+    } else {
+        echo "er";
+    }
 
 } else {
     echo "Ты чо тут забыл ?";
