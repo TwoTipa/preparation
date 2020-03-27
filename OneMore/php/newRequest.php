@@ -24,7 +24,7 @@ $_POST['visit_purpose'])) {
     $data = base64_decode($photo);
     $file_name = generateStr(8) . ".jpg";
     $uploadfile = $uploaddir . $file_name;
-    $url = "localhost/OneMore/" . generateStr(8);
+    $url = generateStr(8);
 
     if(file_put_contents($uploadfile, $data)) {
 
